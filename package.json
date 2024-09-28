@@ -11,12 +11,31 @@
     "build-storybook": "storybook build",
     "prepare": "husky"
   },
+  "prisma": {
+    "seed": "pnpm dlx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "dependencies": {
-    "next": "15.0.0-canary.120",
-    "react": "19.0.0-rc-1eaccd82-20240816",
-    "react-dom": "19.0.0-rc-1eaccd82-20240816",
+    "@aws-sdk/client-s3": "^3.658.0",
+    "@headlessui/react": "^2.1.8",
+    "@hello-pangea/dnd": "^17.0.0",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@prisma/client": "^5.20.0",
+    "arctic": "^1.9.2",
+    "bcrypt": "^5.1.1",
+    "jotai": "^2.10.0",
+    "jsonwebtoken": "^9.0.2",
+    "nanoid": "^5.0.7",
+    "next": "15.0.0-canary.167",
+    "nookies": "^2.5.2",
+    "pdf-lib": "^1.17.1",
+    "prisma": "^5.20.0",
+    "react": "19.0.0-rc-04bd67a4-20240924",
+    "react-dom": "19.0.0-rc-04bd67a4-20240924",
+    "resend": "^4.0.0",
+    "slugify": "^1.6.6",
     "tailwind-merge": "^2.5.2",
-    "tailwind-variants": "^0.2.1"
+    "tailwind-variants": "^0.2.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.6.1",
@@ -29,17 +48,22 @@
     "@storybook/nextjs": "^8.2.9",
     "@storybook/react": "^8.2.9",
     "@storybook/test": "^8.2.9",
-    "@types/node": "^20",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.15.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-storybook": "^0.8.0",
+    "husky": "^9.1.5",
     "postcss": "^8",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "storybook": "^8.2.9",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0"
   }
 }

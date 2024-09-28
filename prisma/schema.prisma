@@ -1,0 +1,130 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id String @id @default(cuid())
+  name String
+  email String
+  phoneNumber String?
+  password String?
+  avatarUrl String?
+  isVerified Boolean @default(false)
+  onBanned Boolean @default(false)
+  role Role @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  verificationCode VerificationCode?
+  certificates Certificate[]
+  transactions Transaction[]
+  courseAccess CourseAccess[]
+}
+
+model VerificationCode {
+  id String @id @default(cuid())
+  code String
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Course {
+  id String @id @default(cuid())
+  title String
+  slug String
+  description String
+  price Int
+  coverImage String
+  isPublished Boolean @default(false)
+  sections Section[]
+  certificates Certificate[]
+  flashSales FlashSale?
+  transactions Transaction[]
+  courseAccess CourseAccess[]
+}
+
+model Section {
+  id String @id @default(cuid())
+  title String
+  index Int @default(0)
+  courseId String
+  course Course @relation(fields: [courseId], references: [id])
+  lessons Lesson[]
+}
+
+model Lesson {
+  id String @id @default(cuid())
+  title String
+  slug String
+  videoUrl String
+  index Int @default(0)
+  isPreview Boolean @default(false)
+  sectionId String
+  section Section @relation(fields: [sectionId], references: [id])
+}
+
+model FlashSale {
+  id String @id @default(cuid())
+  newAmount Int
+  courseId String @unique
+  course Course @relation(fields: [courseId], references: [id])
+}
+
+enum RequestStatus {
+  UNDER_REVIEW
+  APPROVED
+  NO_REQUEST
+}
+
+model Certificate {
+  id String @id @default(cuid())
+  courseId String
+  course Course @relation(fields: [courseId], references: [id])
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  status RequestStatus @default(NO_REQUEST)
+}
+
+enum PaymentStatus{
+  PAID
+  UNPAID
+  EXPIRED
+}
+
+model Transaction {
+ id String @id @default(cuid())
+ amount Int
+ paymentStatus PaymentStatus @default(UNPAID)
+ userId String
+ user User @relation(fields: [userId], references: [id])
+ courseId String 
+ course Course @relation(fields: [courseId], references: [id])
+ paymentLink String?
+ transactionId String? @unique
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+}
+
+model CourseAccess {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  courseId String 
+  course Course @relation(fields: [courseId], references: [id])
+}
