@@ -3,12 +3,12 @@ import { redirect } from "next/navigation";
 import React from "react";
 import { CourseServices } from "services/course.services";
 
+import { publishCourseAction, unpublishCourseAction } from "./action.publish-course";
 import { AddSectionBtn } from "./comp.add-section";
+import { CourseEditForm } from "./comp.course-edit-form";
 import { LessonEditForm } from "./comp.lesson-edit-form";
 import { Sections } from "./comp.section-dnd";
 import { SectionEditForm } from "./comp.section-edit-form";
-import { publishCourseAction, unpublishCourseAction } from "./action.publish-course";
-import { CourseEditForm } from "./comp.course-edit-form";
 import { UpdateCourseBtn } from "./comp.update-course";
 
 interface Props {

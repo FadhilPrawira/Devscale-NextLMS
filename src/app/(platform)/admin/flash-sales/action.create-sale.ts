@@ -30,7 +30,7 @@ export async function createSaleAction(prevState: unknown, formData: FormData) {
       message: "Flash sale created successfully",
     };
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     if (courseId === null) {
       return {
         status: "error",

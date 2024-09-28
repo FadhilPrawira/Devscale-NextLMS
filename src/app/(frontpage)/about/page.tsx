@@ -2,13 +2,7 @@ import { Footer } from "@components/shared/footer";
 import { Header } from "@components/shared/header";
 import React from "react";
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-export default async function Page({ params }: Props) {
+export default function Page() {
   return (
     <main>
       <Header />

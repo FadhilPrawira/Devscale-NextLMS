@@ -1,18 +1,13 @@
 import { Button } from "@components/button";
+import { Footer } from "@components/shared/footer";
 import { Header } from "@components/shared/header";
-import React from "react";
-import { CourseServices } from "services/course.services";
 import { currencyFormat } from "libs/currency-format";
 import Image from "next/image";
 import Link from "next/link";
-import { Footer } from "@components/shared/footer";
-interface Props {
-  params: {
-    slug: string;
-  };
-}
+import React from "react";
+import { CourseServices } from "services/course.services";
 
-export default async function Page({ params }: Props) {
+export default async function Page() {
   const courses = await CourseServices.getAllCourses();
   return (
     <main>

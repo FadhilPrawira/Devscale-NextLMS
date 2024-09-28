@@ -1,10 +1,10 @@
 import { Button } from "@components/button";
+import { DownloadBtn } from "app/(platform)/dashboard/certificates/comp.download";
+import serverAuth from "libs/server-auth";
+import { redirect } from "next/navigation";
 import { CertificateServices } from "services/certificate.services";
 
 import { approveCertificateAction } from "./action";
-import serverAuth from "libs/server-auth";
-import { redirect } from "next/navigation";
-import { DownloadBtn } from "app/(platform)/dashboard/certificates/comp.download";
 
 export default async function Page() {
   const auth = serverAuth();

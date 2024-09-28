@@ -2,7 +2,6 @@
 
 import serverAuth from "libs/server-auth";
 import { redirect } from "next/navigation";
-import { CourseServices } from "services/course.services";
 import { TransactionServices } from "services/transaction.services";
 
 export async function buyCourseAction(formData: FormData) {
@@ -27,10 +26,14 @@ export async function buyCourseAction(formData: FormData) {
   } else if (isAlreadyBoughtAndUnpaid) {
     // Pay again
     // [TODO]  Cek apakah paymentLink sudah expired atau belum. Jika sudah expired, maka buat transaksi baru
-    redirect(isAlreadyBoughtAndUnpaid.paymentLink);
+    if (isAlreadyBoughtAndUnpaid.paymentLink) {
+      redirect(isAlreadyBoughtAndUnpaid.paymentLink);
+    }
   }
 
   // transaction
   const data = await TransactionServices.createTransaction(courseId, user.id, Number(amount));
-  redirect(data.paymentLink);
+  if (data.paymentLink) {
+    redirect(data.paymentLink);
+  }
 }

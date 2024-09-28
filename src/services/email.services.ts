@@ -8,10 +8,11 @@ export const EmailServices = {
 
     if (user) {
       const { data, error } = await resend.emails.send({
-        from: "Devscale Indonesia <admission@fadhilprawira.my.id>",
+        // from: "Devscale Indonesia <admission@fadhilprawira.my.id>",
+        from: `Devscale Indonesia <admission@${process.env.BASE_URL}>`,
         to: [user.email],
         subject: "Verify your account at Devscale LMS!",
-        html: `<p>Click following link to verify <a href="http://localhost:3000/verify?user=${userId}&code=${code}">Verify My Account</a></p>`,
+        html: `<p>Click following link to verify <a href="${process.env.BASE_URL}/verify?user=${userId}&code=${code}">Verify My Account</a></p>`,
       });
 
       console.log({ data, error });

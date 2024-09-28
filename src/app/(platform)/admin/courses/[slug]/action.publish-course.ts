@@ -2,7 +2,6 @@
 
 import prisma from "@utils/prisma";
 import { revalidatePath } from "next/cache";
-import { CourseServices } from "services/course.services";
 
 export async function publishCourseAction(formData: FormData) {
   const courseId = formData.get("courseId") as string;

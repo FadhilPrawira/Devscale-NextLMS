@@ -2,9 +2,8 @@
 import { Button } from "@components/button";
 import { Input } from "@components/input";
 import Link from "next/link";
-import { useActionState } from "react";
-import { useEffect, useState } from "react";
-import { parseCookies, destroyCookie } from "nookies";
+import { destroyCookie,parseCookies } from "nookies";
+import { useActionState , useEffect, useState } from "react";
 
 import { SocialLoginBtn } from "../comp.social-login";
 import { loginAction } from "./action";

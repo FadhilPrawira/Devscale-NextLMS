@@ -7,7 +7,7 @@ import React from "react";
 import { CourseServices } from "services/course.services";
 
 export default async function Page() {
-  const auth = await serverAuth();
+  const auth = serverAuth();
   if (!auth) {
     redirect("/login");
   }

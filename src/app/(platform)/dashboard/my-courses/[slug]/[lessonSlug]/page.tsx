@@ -15,7 +15,7 @@ export default async function Page({ params }: Props) {
   return (
     <main className="flex h-screen">
       <aside className="w-[300px] border-r">
-        {course.sections.map((section) => {
+        {course?.sections.map((section) => {
           return (
             <div key={section.id} className="p-2">
               <h4>{section.title}</h4>
@@ -32,7 +32,7 @@ export default async function Page({ params }: Props) {
       </aside>
       <section className="w-[calc(100%-300px)] space-y-8 p-12">
         <iframe
-          src={`https://youtube.com/embed/${lesson.videoUrl}`}
+          src={`https://youtube.com/embed/${lesson?.videoUrl ?? ""}`}
           width="100%"
           height="100%"
           className="h-[70vh] rounded-xl"

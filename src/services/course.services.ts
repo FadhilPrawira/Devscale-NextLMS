@@ -1,5 +1,6 @@
 import { Course, Lesson, Section } from "@prisma/client";
 import prisma from "@utils/prisma";
+import { getYouTubeEmbedUrl } from "libs/youtube-url";
 import slugify from "slugify";
 
 export const CourseServices = {
@@ -159,7 +160,7 @@ export const CourseServices = {
       data: {
         title: lesson.title,
         slug: slugify(lesson.title, { lower: true }),
-        videoUrl: lesson.videoUrl,
+        videoUrl: getYouTubeEmbedUrl(lesson.videoUrl),
       },
     });
   },

@@ -1,13 +1,13 @@
 import { Button } from "@components/button";
 import { currencyFormat } from "libs/currency-format";
+import serverAuth from "libs/server-auth";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { CourseServices } from "services/course.services";
 import { FlashSaleServices } from "services/flashsale.services";
 
 import { deleteSaleAction } from "./action.delete-sale";
 import { SaleForm } from "./comp.sale-form";
-import serverAuth from "libs/server-auth";
-import { redirect } from "next/navigation";
 
 export default async function Page() {
   const auth = serverAuth();

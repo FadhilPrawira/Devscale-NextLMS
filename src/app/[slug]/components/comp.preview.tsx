@@ -12,7 +12,7 @@ export const Preview = ({ videoUrl }: { videoUrl: string }) => {
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        className="fixed inset-0 z-10 h-screen w-full items-center justify-center bg-black/50 backdrop-blur-md"
+        className="fixed inset-0 z-10 flex h-screen w-full items-center justify-center bg-black/50 backdrop-blur-md"
       >
         <DialogPanel>
           <div className="h-full w-[900px] bg-white">

@@ -1,11 +1,11 @@
 import { Button } from "@components/button";
 import { Card } from "@components/card";
 import serverAuth from "libs/server-auth";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
 import { CourseServices } from "services/course.services";
 
-import Image from "next/image";
 import requestCertificateaction from "./action.request";
 import { DownloadBtn } from "./comp.download";
 

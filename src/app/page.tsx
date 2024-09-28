@@ -5,6 +5,7 @@ import { currencyFormat } from "libs/currency-format";
 import Image from "next/image";
 import Link from "next/link";
 import { CourseServices } from "services/course.services";
+
 import { buyCourseAction } from "./[slug]/action";
 
 export default async function Home() {

@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import React from "react";
 import { CourseServices } from "services/course.services";
 
 interface Props {

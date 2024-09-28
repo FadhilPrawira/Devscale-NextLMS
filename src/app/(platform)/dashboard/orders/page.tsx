@@ -46,7 +46,7 @@ export default async function Page() {
                           // If there is paymentStatus under the same courseId that has been PAID, disabled the link and button
                           transactions.find((t) => t.courseId === transaction.courseId && t.paymentStatus === "PAID")
                             ? "#"
-                            : transaction.paymentLink
+                            : (transaction.paymentLink ?? "#")
                         }
                       >
                         <Button

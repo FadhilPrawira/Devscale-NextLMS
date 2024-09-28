@@ -1,10 +1,10 @@
+import serverAuth from "libs/server-auth";
+import { redirect } from "next/navigation";
 import React from "react";
 import { UserServices } from "services/user.services";
 
 import { BanUser } from "./comp.ban-user";
 import { UnbanUser } from "./comp.unban-user";
-import serverAuth from "libs/server-auth";
-import { redirect } from "next/navigation";
 
 export default async function Page() {
   const auth = serverAuth();

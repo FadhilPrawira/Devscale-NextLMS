@@ -23,6 +23,7 @@ Kursus **Building Learning Management System with Next.js and Server Actions** d
 ## Todo
 
 - [ ] Middleware untuk mengecek apakah user sudah login atau belum
+- [ ] Perbaikan metode penyimpanan url video. Saat ini hanya ID video yang tersimpan seperti ini (dQw4w9WgXcQ). Jika tidak sengaja input seperti ini (https://www.youtube.com/watch?v=dQw4w9WgXcQ) maka akan error. Seharusnya yang tampil seperti ini (https://youtube.com/embed/dQw4w9WgXcQ)
 - [ ] Tombol logout
 - [ ] Cek apakah paymentLink sudah expired atau belum. Jika sudah expired, maka buat transaksi baru
 - [ ] Delete course di sisi admin sehingga tidak bisa diakses admin dan user tapi pastikan user yang sudah membeli masih memiliki akses ke course tersebut

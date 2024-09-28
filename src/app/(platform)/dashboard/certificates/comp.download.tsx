@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useActionState } from "react";
-import downloadCertificateAction from "./action.download";
 import { Button } from "@components/button";
+import React, { useActionState } from "react";
+
+import downloadCertificateAction from "./action.download";
 
 export const DownloadBtn = ({ certificateId }: { certificateId: string }) => {
   const [_, formAction, pending] = useActionState(downloadCertificateAction, null);

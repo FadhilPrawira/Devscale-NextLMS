@@ -1,11 +1,11 @@
 "use server";
 import fontkit from "@pdf-lib/fontkit";
+import { checkIfFileExists, uploadFile } from "@utils/aws";
 import prisma from "@utils/prisma";
+import fs from "fs/promises";
 import { redirect } from "next/navigation";
 import path from "path";
-import fs from "fs/promises";
 import { PDFDocument, rgb } from "pdf-lib";
-import { checkIfFileExists, uploadFile } from "@utils/aws";
 
 export default async function downloadCertificateAction(_: unknown, formData: FormData) {
   const certificateId = formData.get("certificateId") as string;
@@ -29,6 +29,8 @@ export default async function downloadCertificateAction(_: unknown, formData: Fo
   console.log("Apakah file exist?", isfileExists);
   if (!isfileExists) {
     console.log("File does not exist, creating new file");
+    console.log("Creating certificate for", certificate.user.name);
+    console.log("Course title", certificate.course.title);
     // Reading certificate file template
     const certificateTemplatePath = path.resolve("public", "CertificateTemplate.pdf");
     const certificateTemplate = await fs.readFile(certificateTemplatePath);

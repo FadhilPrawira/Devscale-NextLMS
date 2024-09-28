@@ -1,5 +1,3 @@
-import { Card } from "@components/card";
-import prisma from "@utils/prisma";
 import { currencyFormat } from "libs/currency-format";
 import serverAuth from "libs/server-auth";
 import { redirect } from "next/navigation";
